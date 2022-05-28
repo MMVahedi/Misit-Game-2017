@@ -1,0 +1,333 @@
+def level16(self):
+            screen=pygame.display.set_mode((450,600))
+            screen.fill((16,18,33))
+            bia=pygame.image.load("bia.png")
+            cup=pygame.image.load("cup.jpg")
+            game=pygame.image.load("game.png")
+            dayere1=pygame.image.load("ghermez3.png")
+            dayere2=pygame.image.load("aabi3.png")
+            dayerekhali1=pygame.image.load("ghermezkhali2.png")
+            dayerekhali2=pygame.image.load("aabikhali2.png")
+            timesefid=pygame.image.load("timesefid.png")
+            image0=pygame.image.load("0.png")
+            image1=pygame.image.load("1.png")
+            image2=pygame.image.load("2.png")
+            gun2=pygame.image.load("tofang2.png")
+            image3=pygame.image.load("3.png")
+            image4=pygame.image.load("4.png")
+            image00=pygame.image.load("00.png")
+            emptygun2=pygame.image.load("tofangkhali2.png")
+            khali=pygame.image.load("khali.png")
+            gun=pygame.image.load("tofang.png")
+            emptygun=pygame.image.load("tofangkhali.png")
+            goloulekhali=pygame.image.load("goloulekhali.png")
+            goloule=pygame.image.load("goloule.png")
+            like=pygame.image.load("like.jpg")
+            pygame.font.init()
+            screen.blit(game,(0,0))
+            b10=2
+            a10=51
+            kill1="no"
+            kill2="no"
+            screen.blit(gun2,(205,500))
+            screen.blit(image2,(40,500))
+            xgun=205
+            xgoloule=205
+            abc=xgoloule
+            pygame.display.update()
+            x1=100-50-54
+            x2=400-50-54
+            y1=250-50-53
+            emtiaze=100
+            tedadeshelik=0
+            flagnumber2=4
+            flagnumber3=4
+            flagnumber5=0
+            screen.blit(image2,(40,500)) 
+            sharte_yek_bar_bord_ba_yek_shelik=0
+            y2=250-50-53
+            yy2=0
+            xx2=0
+            yy1=0
+            xx1=0
+            flag11=0
+            victory1=0
+            victory2=0
+            flagnumber4=0
+            start_time = time()
+            mane="no"
+            while 1:
+                flagnumber5=0
+                if flagnumber4==0:
+                    adaderandom2=randint(1,400)
+                    a100=1
+                    b100=1
+                if flagnumber4==1:
+                    adaderandom2=randint(1,200)
+                    a100=200
+                    b100=2
+                if b100<=adaderandom2<=a100:
+                    mane="yes"
+                    flagnumber4=1
+                else:
+                    mane="no"
+                    flagnumber4=0
+                if mane=="yes":
+                    pygame.draw.rect(screen,(0,0,0 ), (0,400,150,30), 0)
+                if mane=="no":
+                    pygame.draw.rect(screen,(255,255,255 ), (0,400,150,30), 0)
+                if((int(time() - start_time))<=time() - start_time):
+                    screen.blit(timesefid,(375,490)) 
+                    fontobj=pygame.font.Font('digital-7.ttf',100)
+                    texts=fontobj.render(str( 40-(int(time() - start_time))),True,(0,0,0),(255,255,255))
+                    screen.blit(texts, (345,490))
+                    pygame.display.update()
+                if kill1=="no":
+                    screen.blit(dayere1,(x1,y1))
+                if kill2=="no":
+                    screen.blit(dayere2,(x2,y2))
+                if kill1=="yes" and flagnumber2==0:
+                    screen.blit(dayerekhali1,(x1,y1))
+                if kill2=="yes" and flagnumber3==0:
+                    screen.blit(dayerekhali2,(x2,y2))
+                flagnumber2=flagnumber2+1
+                flagnumber3=flagnumber3+1
+                for event in pygame.event.get():
+                                     if event.type==pygame.KEYDOWN :
+                                            if event.key == pygame.K_LEFT:
+                                                screen.blit(emptygun2,(xgun,500))
+                                                xgun=xgun-3
+                                                xgoloule=xgoloule-3
+                                                abc=xgoloule
+                                                #pygame.draw.circle(screen,(49,49,49),(xgoloule,550),15,0)
+                                                screen.blit(gun2,(xgun,500))
+                                            if event.key == pygame.K_RIGHT:
+                                                screen.blit(emptygun2,(xgun,500))
+                                                xgun=xgun+3
+                                                xgoloule=xgoloule+3
+                                                abc=xgoloule
+                                                screen.blit(gun2,(xgun,500))
+                                            if event.key == pygame.K_SPACE:
+                                                xgoloule=abc
+                                                flagnumber1=1
+                                                tedadeshelik=tedadeshelik+1
+                                                if tedadeshelik==1:
+                                                    screen.blit(image00,(40,500))
+                                                    screen.blit(image1,(40,500))
+                                                if tedadeshelik==2:
+                                                    screen.blit(image00,(40,500))
+                                                    screen.blit(image0,(40,500))
+                                                ygoloule=500
+                                                while flagnumber5==0:
+                                                    if ygoloule==0 or xgoloule==0:
+                                                        flagnumber5=1
+                                                    if ygoloule==431 and 2<=xgoloule<=150 and mane=="yes":
+                                                        flagnumber1=3
+                                                    if xgoloule==1:
+                                                        flagnumber1=0
+                                                    if(flagnumber1==0):
+                                                        xgoloule=xgoloule+1
+                                                        ygoloule=ygoloule-1
+                                                    if(flagnumber1==1):
+                                                        xgoloule=xgoloule-1
+                                                        ygoloule=ygoloule-1
+                                                    if(flagnumber1==3):
+                                                        xgoloule=xgoloule-1
+                                                        ygoloule=ygoloule+1
+                                                    pygame.draw.circle(screen,(49,49,49),(xgoloule+4,ygoloule),15,0)
+                                                    sleep(0.0003)
+                                                    #screen.blit(goloule,(xgoloule+35,ygoloule))
+                                                    #if ygoloule==0:
+                                                        #screen.blit(goloulekhali,(xgoloule+35,ygoloule))
+                                                    #screen.blit(goloulekhali,(xgoloule+35,ygoloule+30))
+                                                    #screen.blit(gun2,(xgun,500))
+                                                    if (x1+63<=(xgoloule+21)<=x1+63+63) and (y1+62<=ygoloule<=y1+62+62) and(victory1==0) and (sharte_yek_bar_bord_ba_yek_shelik==0) and (kill1=="no"):
+                                                        victory1=1
+                                                        print 2
+                                                        sharte_yek_bar_bord_ba_yek_shelik=1
+                                                        kill1="yes"
+                                                        flagnumber2=0
+                                                    if (x2+63<=(xgoloule+21)<=x2+63+63) and (y2+62<=ygoloule<=y2+62+62) and (victory2==0) and(sharte_yek_bar_bord_ba_yek_shelik==0) and (kill2=="no"):
+                                                        victory2=1
+                                                        print 1
+                                                        kill2="yes"
+                                                        flagnumber3=0
+                                                        sharte_yek_bar_bord_ba_yek_shelik=1
+                                                    pygame.display.update()
+                                                sharte_yek_bar_bord_ba_yek_shelik=0
+                                                if victory2==1 and victory1==1:
+                                                        k=0
+                                                        sleep(1)
+                                                        f= open("a.txt","r")
+                                                        a=f.readlines()
+                                                        if ('finish16' in a)  or ('finish16\n' in a):
+                                                            k=1
+                                                        f.close()
+                                                        f= open("a.txt","a")
+                                                        if k==0:
+                                                            f.write("\n")
+                                                            f.write("finish16")
+                                                        f.close()
+                                                        emtiaze=int(emtiaze- (int(((time() - start_time))))*4)
+                                                        f= open("b.txt","r")
+                                                        a=f.readline()
+                                                        emtiazeghabli=a
+                                                        emtiazejadid=emtiaze+int(emtiazeghabli)
+                                                        f.close()
+                                                        f= open("b.txt","w")
+                                                        f.write(str(emtiazejadid))
+                                                        f.close()
+                                                        f= open("d.txt","r")
+                                                        a=f.readline()
+                                                        sekkeghabli= a
+                                                        f.close()
+                                                        f= open("d.txt","w")
+                                                        sekkejadid=int(sekkeghabli)+10
+                                                        f.write( str(sekkejadid))
+                                                        f.close()
+                                                        screen.blit(game,(0,0))
+                                                        screen.blit(cup,(94,25))
+                                                        fontobj=pygame.font.Font('CURLZ___.TTF',100)
+                                                        texts=fontobj.render("you win",True,(0,0,0),(255,255,255))
+                                                        screen.blit(texts, (50,450))
+                                                        pygame.display.update()
+                                                        sleep(2)
+                                                        misitgame.play()
+                                                else :
+                                                    if tedadeshelik==2:
+                                                        sleep(1)
+                                                        screen.blit(game,(0,0))
+                                                        screen.blit(bia,(125,25))
+                                                        fontobj=pygame.font.Font('CURLZ___.TTF',100)
+                                                        texts=fontobj.render("you lose",True,(0,0,0),(255,255,255))
+                                                        screen.blit(texts, (50,450))
+                                                        pygame.display.update()
+                                                        sleep(2)
+                                                        misitgame.play()
+                                                if(ygoloule==0) or(flagnumber5==1):
+                                                    ygoloule=500
+                                                    xgoloule=abc
+                                                    flagnumber1=1
+                                                    print 12
+                                                    while (ygoloule!=0 and xgoloule!=0):
+                                                        print 123
+                                                        if ygoloule==431 and 2<=xgoloule<=150 and mane=="yes":
+                                                            flagnumber1=3
+                                                        if xgoloule==1:
+                                                            flagnumber1=0
+                                                        if(flagnumber1==0):
+                                                            xgoloule=xgoloule+1
+                                                            ygoloule=ygoloule-1
+                                                        if(flagnumber1==1):
+                                                            xgoloule=xgoloule-1
+                                                            ygoloule=ygoloule-1
+                                                        if(flagnumber1==3):
+                                                            xgoloule=xgoloule-1
+                                                            ygoloule=ygoloule+1
+                                                        pygame.draw.circle(screen,(255,255,255),(xgoloule+4,ygoloule),15,0)
+                                                        pygame.display.update()
+                                                        sleep(0.0003)
+                                                xgoloule=xgun+4
+                                            pygame.display.update()    
+                #if ghotr 1
+                #if ghotr 2
+                #if ghotr 3
+                #if ghotr 4
+                if flag11==0:
+                    adaderandom=randint(1,51)
+                    a10=1
+                    b10=1
+                if flag11==1:
+                    adaderandom=randint(1,51)
+                    a10=51
+                    b10=2
+                if b10<=adaderandom<=a10:
+                    flag11=1
+                    if kill1=="no":
+                        if 100-50-63<=x1<=250-50-63 and 250-50-62<=y1<=400-50-62:
+                            xx1=-1
+                            yy1=-1
+                            x1=x1+xx1
+                            y1=y1+yy1
+                        if 250-50-63<=x1<=400-50-63 and 400-50-62>=y1>=250-50-62:
+                            xx1=-1
+                            yy1=1
+                            x1=x1+xx1
+                            y1=y1+yy1
+                        if 400-50-63>=x1>=250-50-63 and 250-50-62>=y1>=100-50-62:
+                            xx1=1
+                            yy1=1
+                            x1=x1+xx1
+                            y1=y1+yy1
+                        if 250-50-63>=x1>=100-50-63 and 100-50-62<=y1<=250-50-62:
+                            xx1=1
+                            yy1=-1
+                            x1=x1+xx1
+                            y1=y1+yy1
+                    if kill2=="no":
+                        if 400-50-45>=x2>=250-50-45 and 250-50-44>=y2>=100-50-44:
+                            xx2=1
+                            yy2=1
+                            x2=x2+xx2
+                            y2=y2+yy2
+                        if 250-50-45<=x2<=400-50-45 and 400-50-44>=y2>=250-50-44:
+                            xx2=-1
+                            yy2=1
+                            x2=x2+xx2
+                            y2=y2+yy2
+                        if 250-50-45>=x2>=100-50-45 and 100-50-44<=y2<=250-50-44:
+                            xx2=1
+                            yy2=-1
+                            x2=x2+xx2
+                            y2=y2+yy2
+                        if 100-50-45<=x2<=250-50-45 and 250-50-44<=y2<=400-50-44:
+                            xx2=-1
+                            yy2=-1
+                            x2=x2+xx2
+                            y2=y2+yy2
+                    pygame.display.update()
+                else:
+                    flag11=0
+                    if kill1=="no":
+                        if 100-50-63<=x1<=250-50-63 and 250-50-62<=y1<=400-50-62:
+                            xx1=1 
+                            yy1=1
+                            x1=x1+xx1
+                            y1=y1+yy1
+                        if 250-50-63<=x1<=400-50-63 and 400-50-62>=y1>=250-50-62:
+                            xx1=1
+                            yy1=-1
+                            x1=x1+xx1
+                            y1=y1+yy1
+                        if 400-50-63>=x1>=250-50-63 and 250-50-62>=y1>=100-50-62:
+                            xx1=-1
+                            yy1=-1
+                            x1=x1+xx1
+                            y1=y1+yy1
+                        if 250-50-63>=x1>=100-50-63 and 100-50-62<=y1<=250-50-62:
+                            xx1=-1
+                            yy1=1
+                            x1=x1+xx1
+                            y1=y1+yy1
+                    if kill2=="no":
+                        if 400-50-45>=x2>=250-50-45 and 250-50-44>=y2>=100-50-44:
+                            xx2=-1
+                            yy2=-1
+                            x2=x2+xx2
+                            y2=y2+yy2
+                        if 250-50-45<=x2<=400-50-45 and 400-50-44>=y2>=250-50-44:
+                            xx2=1
+                            yy2=-1
+                            x2=x2+xx2
+                            y2=y2+yy2
+                        if 250-50-45>=x2>=100-50-45 and 100-50-44<=y2<=250-50-44:
+                            xx2=-1
+                            yy2=1
+                            x2=x2+xx2
+                            y2=y2+yy2
+                        if 100-50-45<=x2<=250-50-45 and 250-50-44<=y2<=400-50-44:
+                            xx2=1
+                            yy2=1
+                            x2=x2+xx2
+                            y2=y2+yy2
+                    pygame.display.update()
